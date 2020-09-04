@@ -16,6 +16,8 @@ module Main =
         let app = new System.Windows.Application()
         Forms.Init()
         let window = MainWindow() 
+        window.Title <- "Fabulous SDL Demo"
+
         window.LoadApplication(new FabulousSDL.App())
 
         app.Run(window)
