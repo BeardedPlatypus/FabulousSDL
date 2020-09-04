@@ -1,5 +1,4 @@
-﻿// Copyright 2018-2019 Fabulous contributors. See LICENSE.md for license.
-namespace FabulousSDL
+﻿namespace FabulousSDL
 
 open System.Diagnostics
 open Fabulous
@@ -8,7 +7,7 @@ open Fabulous.XamarinForms.LiveUpdate
 open Xamarin.Forms
 
 module App = 
-    type Model = 
+    type Model =
       { Count : int
         Step : int
         TimerOn: bool }
