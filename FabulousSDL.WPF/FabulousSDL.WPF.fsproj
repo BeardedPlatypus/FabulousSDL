@@ -11,7 +11,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.fs" />
-    <Compile Include="SDLHost.fs" />
     <Compile Include="ViewportRenderer.fs" />
     <Compile Include="App.fs" />
     <None Include="app.config" />
@@ -22,6 +21,6 @@
     <PackageReference Include="OpenTK.GLControl" Version="3.1.0" />
     <PackageReference Include="Xamarin.Forms.Platform.WPF" Version="4.8.0.1364" />
     <ProjectReference Include="../FabulousSDL/FabulousSDL.fsproj" />
-    <ProjectReference Include="..\FabulousSDL.Viewport.Shell.Interop\FabulousSDL.Viewport.Shell.Interop.vcxproj" />
+    <ProjectReference Include="..\FabulousSDL.WPF.Components\FabulousSDL.WPF.Components.csproj" />
   </ItemGroup>
 </Project>
