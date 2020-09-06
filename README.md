@@ -67,9 +67,20 @@ The actual code is organised in five small projects located at the root level:
    `ViewportControl`. The `ViewportControl` is the control that embeds the SDL2
    window, such that it can be used by the `FabulousSDL.WPF` project.
 
+## Additional implementation notes
+
 Unfortunately, my grasp of F#, Fabulous, and Xamarin.Forms is not sufficiently
 advanced enough that I was capable of implementing the `FabulousSDL.WPF.Components.Viewport` 
 directly in F#. However the current code seem so to work for this minimal example.
+
+Furthermore, there is some additional code within the `ViewportControl` that 
+manages the initialisation of the `ViewportHost`. While experimenting I found that
+unfortunately the `Loaded` event of the user control does not have the correct 
+width and height when the `Viewport` is embedded in a grid or other layout 
+(save the `Frame` for some reason). If the actual `SDL_Renderer` is initialised 
+with a 0 x 0 window, it will fail resulting in a black screen. In order to avoid 
+this situation we basically listen to the first size changed with an actual size
+after the `Loaded` event, and initialise the `ViewportHost` with these values. 
 
 ## References and further reading
 
