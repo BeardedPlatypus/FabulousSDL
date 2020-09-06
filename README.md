@@ -1,5 +1,6 @@
-<p align="center"><img src="https://github.com/BeardedPlatypus/FabulousSDL/blob/master/FabulousSDL.png?raw=true" alt="InteropWindow" title="InteropWindow" width=80% /></p>
-*Demo application, the blue window is rendered by the SDL2 Code*
+<p align="center"><img src="https://github.com/BeardedPlatypus/FabulousSDL/blob/master/FabulousSDL.png?raw=true" alt="InteropWindow" title="InteropWindow" width=100% /></p>
+
+*Demo application, the blue top-middle window is rendered by the native SDL2 Code*
 
 # Hosting a C++ SDL2 Window within a Fabulous WPF application
 
@@ -76,5 +77,5 @@ directly in F#. However the current code seem so to work for this minimal exampl
 * [SDL2 Home Page](https://www.libsdl.org/)
 * [msdn: implementing a custom renderer](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/custom-renderer/view)
 * [Hosting a C++ D3D engine C# winforms](https://www.gamedev.net/articles/programming/graphics/hosting-a-c-d3d-engine-in-c-winforms-r2526/)
-
+* [Hosting a Win32 window in WPF sample](https://github.com/Microsoft/WPF-Samples/tree/master/Migration%20and%20Interoperability/WPFHostingWin32Control)
 
