@@ -16,8 +16,9 @@ for my [PacMan game](https://github.com/BeardedPlatypus/PacMan).
 ## Installation
 
 In order to build this repository, several tools need to be installed. The 
-Azure DevOps provides an overview of the build steps. The application itself
-is build with Visual Studio 2019.
+[Azure DevOps yml](https://github.com/BeardedPlatypus/FabulousSDL/blob/master/azure-pipelines.yml) 
+provides an overview of the build steps. The application itself is build 
+with Visual Studio 2019.
 
 ### F# tooling and Xamarin.Forms
 
