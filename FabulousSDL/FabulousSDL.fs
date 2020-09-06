@@ -6,7 +6,17 @@ open Fabulous.XamarinForms
 open Fabulous.XamarinForms.LiveUpdate
 open Xamarin.Forms
 
+/// <summary>
+/// <see cref="App"/> is the main application module of our FabulousSDL 
+/// application.
+/// </summary>
+/// <remarks
+/// This code is based on the template provided by Fabulous for Xamarin.Forms.
+/// See: https://fsprojects.github.io/Fabulous/Fabulous.XamarinForms/index.html#getting-started
+/// </remarks>
 module App = 
+    // This particular demo application is static, and as such we do not define
+    // the model and update methods.
     type Model = unit
     type Msg = unit
 
@@ -34,6 +44,7 @@ module App =
                                                   .Row(1).Column(2)
                                   ]
                                ).RowSpacing(2.0).ColumnSpacing(2.0)
+
         View.ContentPage(content = content,
                          backgroundColor = Color.Black,
                          hasNavigationBar = false)
