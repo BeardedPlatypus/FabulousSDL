@@ -34,7 +34,7 @@ steps:
     displayName: 'Build - Copy Executable'
     inputs:
       SourceFolder: '$(Build.SourcesDirectory)/FabulousSDL.WPF/bin/$(buildConfiguration)/netcoreapp3.1/'
-      Contents: '*.?(exe|dll|json)'
+      Contents: '**/*'
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
       CleanTargetFolder: true
   
