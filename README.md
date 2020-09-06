@@ -4,6 +4,8 @@
 
 # Hosting a C++ SDL2 Window within a Fabulous WPF application
 
+[![Build Status](https://dev.azure.com/mwtegelaers/FabulousSDL/_apis/build/status/BeardedPlatypus.FabulousSDL?branchName=master)](https://dev.azure.com/mwtegelaers/FabulousSDL/_build/latest?definitionId=23&branchName=master)
+
 This repository shows a minimal implementation of hosting a native SDL2 window 
 written in C++ within a [Fabulous for Xamarin.Forms](https://github.com/fsprojects/Fabulous) 
 WPF application. It uses a similar `HwndHost` as used in my [SDL_WPF_Interop repository](https://github.com/BeardedPlatypus/SDL_WPF_Interop). 
