@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FabulousSDL": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

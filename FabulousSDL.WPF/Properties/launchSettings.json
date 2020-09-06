@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FabulousSDL.WPF": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

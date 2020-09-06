@@ -19,10 +19,10 @@ namespace FabulousSDL.WPF.Components
         private readonly int _hostHeight;
         private readonly int _hostWidth;
 
-        public ViewportHost(double height, double width)
+        public ViewportHost(double width, double height)
         {
-            _hostHeight = (int) height;
             _hostWidth = (int) width;
+            _hostHeight = (int) height;
         }
 
         protected override HandleRef BuildWindowCore(HandleRef hwndParent)

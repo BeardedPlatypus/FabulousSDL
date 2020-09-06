@@ -24,7 +24,16 @@ namespace FabulousSDL::Viewport::Nucleus
 		atexit(SDL_Quit);
 
 		this->p_window_ = SDL_CreateWindowFrom(p_native_window);
-		this->p_renderer_ = SDL_CreateRenderer(this->p_window_, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+#if _DEBUG
+		std::string windowError = SDL_GetError();
+#endif
+		
+		this->p_renderer_ = SDL_GetRenderer(this->p_window_);
+
+#if _DEBUG
+		std::string rendererError = SDL_GetError();
+#endif
+
 
 		int w, h;
 		SDL_GetWindowSize(this->p_window_, &w, &h);
@@ -32,20 +41,29 @@ namespace FabulousSDL::Viewport::Nucleus
 
 	void view::update()
 	{
-        SDL_Delay(10);
+		int w, h;
+		SDL_GetWindowSize(this->p_window_, &w, &h);
+		
+		if (w != 0 && h != 0 && p_renderer_ == nullptr)
+		{
+			this->p_renderer_ = SDL_CreateRenderer(this->p_window_, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+		}
+
+		if (p_renderer_ == nullptr) return;
+		
+        SDL_Event sdl_event;
+		while (SDL_PollEvent(&sdl_event))
+		{
+			if (sdl_event.type == SDL_QUIT) 
+			{
+				this->should_quit_ = true;
+				break;
+			}
+		}
 
         SDL_SetRenderDrawColor(this->p_renderer_, 128, 216, 235, 255);
         SDL_RenderClear(this->p_renderer_);
         SDL_RenderPresent(this->p_renderer_);
-        SDL_Delay(10);
-
-        SDL_Event sdl_event;
-		while (SDL_PollEvent(&sdl_event))
-		{
-			if (sdl_event.type != SDL_QUIT) continue;
-			this->should_quit_ = true;
-			break;
-		}
 	}
 
 	bool view::should_quit() const

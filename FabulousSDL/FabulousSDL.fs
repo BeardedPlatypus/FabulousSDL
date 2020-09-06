@@ -18,7 +18,23 @@ module App =
         model, Cmd.none
 
     let view (model: Model) dispatch =
-        View.ContentPage(content = View.Viewport(),
+        let content = View.Grid( rowdefs = [ Stars 2.0; Star ],
+                                 coldefs = [ Star; Stars 2.0; Star],
+                                 children = 
+                                  [ View.BoxView().BackgroundColor(Color.LightCoral)
+                                                  .Row(0).Column(0)
+                                    View.Viewport().Row(0).Column(1)
+                                    View.BoxView().BackgroundColor(Color.LightGreen)
+                                                  .Row(0).Column(2)
+                                    View.BoxView().BackgroundColor(Color.Coral)
+                                                  .Row(1).Column(0)
+                                    View.BoxView().BackgroundColor(Color.DarkOrange)
+                                                  .Row(1).Column(1)
+                                    View.BoxView().BackgroundColor(Color.LimeGreen)
+                                                  .Row(1).Column(2)
+                                  ]
+                               ).RowSpacing(2.0).ColumnSpacing(2.0)
+        View.ContentPage(content = content,
                          backgroundColor = Color.Black,
                          hasNavigationBar = false)
 
