@@ -6,7 +6,7 @@ using System.Windows.Interop;
 namespace FabulousSDL.WPF.Components
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for ViewportControl.xaml
     /// </summary>
     public partial class ViewportControl: UserControl
     {
@@ -15,6 +15,9 @@ namespace FabulousSDL.WPF.Components
 
         private ViewportHost _viewportHost;
 
+        /// <summary>
+        /// Creates a new <see cref="ViewportControl"/>.
+        /// </summary>
         public ViewportControl()
         {
             InitializeComponent();
@@ -25,6 +28,11 @@ namespace FabulousSDL.WPF.Components
             if (!_hasLoaded)
                 _hasLoaded = true;
 
+            // It is not guaranteed that the ViewportCanvas has a 
+            // a valid size, as such we only initialize when we
+            // have a valid size and it has not been initialised yet.
+            // Otherwise we will do so on the first non-zero size
+            // change.
             if (!_hasInitialized && IsValidSize(ViewportCanvas.ActualWidth, 
                                                ViewportCanvas.ActualHeight))
                 InitializeViewport();
@@ -36,8 +44,6 @@ namespace FabulousSDL.WPF.Components
                 return;
 
             InitializeViewport();
-            _hasInitialized = true;
-            SizeChanged -= OnSizeChanged;
         }
 
         private static bool IsValidSize(Size size) => IsValidSize(size.Width, size.Height);
@@ -49,6 +55,9 @@ namespace FabulousSDL.WPF.Components
             ViewportCanvas.Child = _viewportHost;
 
             _viewportHost.MessageHook += new HwndSourceHook(ControlMsgFilter);
+
+            _hasInitialized = true;
+            SizeChanged -= OnSizeChanged;
         }
 
         private IntPtr ControlMsgFilter(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)

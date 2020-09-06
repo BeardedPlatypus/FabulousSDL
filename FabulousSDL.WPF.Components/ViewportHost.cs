@@ -4,9 +4,16 @@ using System.Windows.Interop;
 
 namespace FabulousSDL.WPF.Components
 {
+    /// <summary>
+    /// <see cref="ViewportHost"/> provides the <see cref="HwndHost"/>
+    /// implementation in order to host the
+    /// <see cref="Viewport.Shell.Interop.view"/> object.
+    /// </summary>
+    /// <seealso cref="HwndHost" />
     public class ViewportHost : HwndHost
     {
         #region Constant Interop Values
+        // Interop values, see: https://docs.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles
         internal const int WsChild = 0x40000000;
         internal const int WsVisible = 0x10000000;
         internal const int HostId = 0x00000002;
@@ -19,6 +26,11 @@ namespace FabulousSDL.WPF.Components
         private readonly int _hostHeight;
         private readonly int _hostWidth;
 
+        /// <summary>
+        /// Creates a new <see cref="ViewportHost"/>.
+        /// </summary>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
         public ViewportHost(double width, double height)
         {
             _hostWidth = (int) width;
