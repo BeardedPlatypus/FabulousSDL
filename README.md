@@ -35,15 +35,14 @@ Make sure you have at least the following features installed:
 ### vcpkg
 
 The C++ dependencies can be installed through [vcpkg](https://github.com/microsoft/vcpkg).
-It requires the following packages:
+It requires the following package:
 
 * SDL2:x64-windows
-* SDL2-image:x64-windows
 
 These can be installed as follows:
 
 ```bash
-vcpkg.exe install SDL2:x64-windows SDL2-image:x64-windows
+vcpkg.exe install SDL2:x64-windows
 ```
 
 The application itself is build with the x64 architecture, as such it is 
